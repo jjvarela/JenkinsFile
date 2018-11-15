@@ -2,15 +2,18 @@
 node {
     checkout scm    
     stage ('Build') {
-        withMaven ( maven: 'Maven Test) {
+        withMaven ( maven: 'Maven Test') {
                    sh 'mvn compile'
                    }
     }   
     stage ('Test') {
-        sh 'mvn test'
-        junit '**/target/*.xml'
+        withMaven ( maven: 'Maven Test') {
+            sh 'mvn test'
+                   }
     }
     stage ('Deploy') {
-        sh 'mvn package'
+        withMaven ( maven: 'Maven Test') {
+            sh 'mvn package'
+                   }
     }
 }
