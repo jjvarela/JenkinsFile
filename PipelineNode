@@ -13,6 +13,7 @@ node {
     stage ('Deploy') {
         withMaven ( maven: 'Maven Test') {
             sh 'mvn package'
+            fileOperations([fileCopyOperation(includes: 'C:\workspace\Hello\**', targetLocation: 'F:\Test\Sample')])
                    }
     }
 }
