@@ -1,0 +1,11 @@
+node {
+    stage ('Build') {
+        echo 'Hola Mundo'
+    }
+    stage ('Test') {
+        echo 'Hola Mundo node'
+    }
+    stage ('Deploy') {
+        echo 'Hola Mundo node'
+    }
+}
