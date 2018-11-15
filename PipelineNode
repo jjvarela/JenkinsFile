@@ -1,12 +1,12 @@
 node {
     checkout scm    
     stage ('Build') {
-        echo 'Hola Mundo'
+        sh 'mvn compile'
     }
     stage ('Test') {
-        echo 'Hola Mundo node'
+        sh 'mvn test'
     }
     stage ('Deploy') {
-        echo 'Hola Mundo node'
+        sh 'mvn package'
     }
 }
