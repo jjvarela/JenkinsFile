@@ -14,8 +14,8 @@ node {
         try {
             withMaven ( maven: 'Maven Test') {
                 sh 'mvn package'
-                fileOperations([fileCreateOperation(folderpath: '/home/ivan/artefactos/pipeline')])
-                fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: '**/*.jar*', targetLocation: '/home/ivan/artefactos/pipeline')])
+                git add target
+                git commit -am 'OK'
                     }
         }finally {
           deleteDir()
